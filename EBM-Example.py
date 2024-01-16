@@ -340,68 +340,7 @@ data_vd['predicted_FP'] = ebm.predict_proba(Z).tolist()
 
 
 # ------------------------------------------------
-# Model optimization
+# End of script
 # ------------------------------------------------
 
-# insert any good ideas here
-
-# ------------------------------------------------
-# Get model metrics
-# ------------------------------------------------
-
-from sklearn import metrics
-import seaborn as sns
-from matplotlib import pyplot
-
-#Confusion Matrix for trainset
-cf_train_matrix = metrics.confusion_matrix(y_train, x_pred)
-pyplot.figure(figsize = (10,8))
-sns.heatmap(cf_train_matrix, annot = True, fmt = 'd')
-pyplot.xlabel('Predicted')
-pyplot.ylabel('Actual')
-
-a = metrics.confusion_matrix(y_train, x_pred)[1,1] + metrics.confusion_matrix(y_train, x_pred)[0,0]
-b = x_pred.count()
-model_accuracy = a/b
-print('\ntrain accuracy =', model_accuracy)
-
-c = metrics.confusion_matrix(y_train, x_pred)[1,1] 
-d = metrics.confusion_matrix(y_train, x_pred)[1,1] + metrics.confusion_matrix(y_train, x_pred)[0,1]
-tp_accuracy = c/d
-print('train true positives accuracy =', tp_accuracy)
-
-
-#Confusion Matrix for testset
-cf_train_matrix = metrics.confusion_matrix(y_test, y_pred)
-pyplot.figure(figsize = (10,8))
-sns.heatmap(cf_train_matrix, annot = True, fmt = 'd')
-pyplot.xlabel('Predicted')
-pyplot.ylabel('Actual')
-
-a = metrics.confusion_matrix(y_test, y_pred)[1,1] + metrics.confusion_matrix(y_test, y_pred)[0,0]
-b = y_pred.count()
-model_accuracy = a/b
-print('\ntest accuracy =', model_accuracy)
-
-c = metrics.confusion_matrix(y_test, y_pred)[1,1]
-d = metrics.confusion_matrix(y_test, y_pred)[1,1] + metrics.confusion_matrix(y_test, y_pred)[0,1]
-tp_accuracy = c/d
-print('test true positives accuracy =', tp_accuracy)
-
-
-#Confusion Matrix for validation set
-cf_train_matrix = metrics.confusion_matrix(data_vd['binary'], data_vd['predicted'])
-pyplot.figure(figsize = (10,8))
-sns.heatmap(cf_train_matrix, annot = True, fmt = 'd')
-pyplot.xlabel('Predicted')
-pyplot.ylabel('Actual')
-
-a = metrics.confusion_matrix(data_vd['binary'], data_vd['predicted'])[1,1] + metrics.confusion_matrix(data_vd['binary'], data_vd['predicted'])[0,0]
-b = data_vd['predicted'].count()
-model_accuracy = a/b
-print('\nvalidation accuracy =', model_accuracy)
-
-c = metrics.confusion_matrix(data_vd['binary'], data_vd['predicted'])[1,1]
-d = metrics.confusion_matrix(data_vd['binary'], data_vd['predicted'])[1,1] + metrics.confusion_matrix(data_vd['binary'], data_vd['predicted'])[0,1]
-tp_accuracy = c/d
-print('validation true positives accuracy =', tp_accuracy)
+# Your additions here
