@@ -262,7 +262,7 @@ print('preprocessing complete')
 
 # resolve class imbalance problem (16,7% true positive in train/test set)
 data_false_1 = data[data['binary']==0]
-data_false_2 = data.sample(frac = 0.33, random_state = 24) #new class imbalance = 25% true positives
+data_false_2 = data_false_1.sample(frac = 0.33, random_state = 24) #new class imbalance = 25% true positives
 data_true_1 = data[data['binary']==1]
 
 data_2 = pd.concat([data_false_2, data_true_1])
